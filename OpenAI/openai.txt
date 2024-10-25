@@ -1,0 +1,25 @@
+Para analizar la frecuencia de repetición de los datos en un DataFrame de Pandas, puedes utilizar el método `value_counts()`, que te proporcionará la cantidad de veces que cada valor aparece en la columna. Esto puede ayudarte a decidir si la moda es una elección adecuada para rellenar los datos faltantes.
+
+A continuación te muestro un ejemplo de cómo puedes hacerlo para tus columnas "ciudad" y "metodo de pago":
+
+```python
+import pandas as pd
+
+# Supongamos que tienes un DataFrame llamado df
+df = pd.DataFrame({
+    'ciudad': ['Madrid', 'Barcelona', 'Madrid', 'Sevilla', 'Madrid', None],
+    'metodo_pago': ['tarjeta de credito', 'efectivo', None, 'transferencia', 'tarjeta de credito', 'tarjeta de credito']
+})
+
+# Contar la frecuencia de valores únicos en la columna "ciudad"
+frecuencia_ciudad = df['ciudad'].value_counts()
+print("Frecuencia de valores en 'ciudad':\n", frecuencia_ciudad)
+
+# Contar la frecuencia de valores únicos en la columna "metodo_pago"
+frecuencia_metodo_pago = df['metodo_pago'].value_counts()
+print("\nFrecuencia de valores en 'metodo_pago':\n", frecuencia_metodo_pago)
+```
+
+Este código imprime cuántas veces aparece cada valor único en las columnas "ciudad" y "metodo_pago". Si observas que un valor particular se repite con mucha frecuencia, puede tener sentido utilizar la moda para rellenar los valores faltantes en esa columna.
+
+Recuerda que la decisión de usar la moda o cualquier otra técnica de imputación debe basarse en el conocimiento del dominio y en los patrones de tus datos. La elección de la técnica adecuada puede variar dependiendo de la naturaleza del caso de uso específico.
